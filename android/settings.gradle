@@ -1,0 +1,3 @@
+rootProject.name = 'coastalApp'
+
+include ':app'
