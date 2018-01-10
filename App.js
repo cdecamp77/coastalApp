@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View} from 'react-native';
-import IEPManager from './app/pages/IEPManager/IEPManager';
+import Maint791 from './app/pages/Maint791/Maint791';
 
 export default class coastalApp extends Component {
   render() {
     return (
       <View>
-        <IEPManager />
+        <Maint791 />
       </View>
     );
   }

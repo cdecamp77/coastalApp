@@ -2,12 +2,17 @@ import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 
 export default class IEPManager extends Component {
+    _onPressButton() {
+        console.log('button pressed');
+    }
+
   render() {
     return (
       <ScrollView>
         <View style={styles.container}>
             <Text style={styles.h1}>Internal Evaluation Program Manager</Text>
-            <Text>New Checklists</Text>
+            <Text style={styles.newChecklist}>New Checklists</Text>
+            <View style={styles.newForms}>
             <TouchableOpacity onPress={this._onPressButton}>
                 <View style={styles.button}>
                     <Text style={styles.buttonText}>USFS - Exhibit 31 - SMS 2017</Text>
@@ -103,6 +108,7 @@ export default class IEPManager extends Component {
                     <Text style={styles.buttonText}>Maint 6- Control/Planning Part 135 (2017)</Text>
                 </View>
             </TouchableOpacity>
+            </View>
         </View>
       </ScrollView>
     );
@@ -120,7 +126,7 @@ const styles = StyleSheet.create ({
         margin: 25
     },
     button: {
-        marginBottom: 10,
+        margin: 10,
         width: 260,
         alignItems: 'center',
         backgroundColor: '#2196F3'
@@ -128,6 +134,15 @@ const styles = StyleSheet.create ({
     buttonText: {
         padding: 10,
         color: 'white'
+    },
+    newChecklist: {
+        fontSize: 18
+    },
+    newForms: {
+        borderWidth: 2,
+        borderRadius: 2,
+        borderColor: 'lightgrey',
+        padding: 5
     }
 })
 
