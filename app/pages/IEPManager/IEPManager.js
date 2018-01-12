@@ -58,6 +58,7 @@ export default class IEPManager extends Component {
 const styles = StyleSheet.create ({
     container: {
         borderWidth: 2,
+        borderRadius: 2,
         borderColor: 'lightgrey'
     },
     h1: {

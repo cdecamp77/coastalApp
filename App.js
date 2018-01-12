@@ -20,6 +20,4 @@ const styles = StyleSheet.create({
   }
   });
 
-
-
 AppRegistry.registerComponent('coastalApp', () => coastalApp);
