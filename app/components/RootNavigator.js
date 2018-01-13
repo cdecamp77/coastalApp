@@ -20,6 +20,7 @@ import Maint5135 from '../pages/Maint5135/Maint5135'
 import Maint7135 from '../pages/Maint7135/Maint7135'
 import Maint8135 from '../pages/Maint8135/Maint8135'
 import Ops8RW from '../pages/Ops8RW/Ops8RW'
+import Ops8135 from '../pages/Ops8135/Ops8135'
 import Ops591 from '../pages/Ops591/Ops591'
 import Ops791 from '../pages/Ops791/Ops791'
 import Ops1135 from '../pages/Ops1135/Ops1135'
@@ -40,6 +41,7 @@ const RootNavigator = StackNavigator({
     Maint7135: {screen: Maint7135},
     Maint8135: {screen: Maint8135},
     Ops8RW: {screen: Ops8RW},
+    Ops8135: {screen: Ops8135},
     Ops591: {screen: Ops591},
     Ops791: {screen: Ops791},
     Ops1135: {screen: Ops1135},
