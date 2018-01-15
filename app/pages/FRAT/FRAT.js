@@ -99,6 +99,7 @@ export default class FRAT extends Component {
         onClick={()=>this.handleCheck1(2, 4)}
       />, 'Duty time greater than 10 hours', '2'],
       ['', 'Total Factor Score: ', this.state.totalFactorScore1]
+      ['Total Factor Score: '+this.state.totalFactorScore1]
     ]
     const tableHead2 = ['Operating Environment']
     const tableData2 = [
@@ -130,6 +131,7 @@ export default class FRAT extends Component {
         onClick={()=>this.handleCheck2(3, 13)}
       />, 'Unimproved landing site', '3'],
       ['', 'Total Factor Score: ', this.state.totalFactorScore2]
+      ['Total Factor Score: '+ this.state.totalFactorScore2]
     ]
     const tableHead3 = ['Mission Requirements']
     const tableData3 = [
@@ -149,6 +151,7 @@ export default class FRAT extends Component {
         onClick={()=>this.handleCheck3(3, 18)}
       />, '90% of allowable payload', '3'],
       ['', "Total Factor Score: ", this.state.totalFactorScore3]
+      ["Total Factor Score: " +this.state.totalFactorScore3]
     ]
     return (
       <ScrollView style={styles.container}>
