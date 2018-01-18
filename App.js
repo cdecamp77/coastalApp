@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet} from 'react-native';
-import RootNavigator from './app/components/RootNavigator';
+// import RootNavigator from './app/components/RootNavigator';
 import Maint791 from './app/pages/Maint791/Maint791';
-import FRAT from './app/pages/FRAT/FRAT'
+import RATNavigator from './app/components/RATNavigator';
+import Landing from './app/pages/Landing/Landing';
 
 export default class coastalApp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <RootNavigator />
+        <RATNavigator />
       </View>
     );
   }

@@ -567,7 +567,7 @@ export default class GRAT extends Component {
     ]
     return (
       <ScrollView style={styles.container}>
-        <Text>Flight Risk Anaylsis Tool</Text>
+        <Text>Ground Risk Anaylsis Tool</Text>
         <Text>Template Name: Coastal Helicopters Fire</Text>
           <Table>
             <Row data={tableHead1} style={styles.title} />
