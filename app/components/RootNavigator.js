@@ -1,4 +1,3 @@
-
 import { StackNavigator } from 'react-navigation';
 import {
     Platform,
@@ -10,8 +9,14 @@ import {
   } from 'react-native';  
 import React, { Component } from 'react';
 import IEPManager from '../pages/IEPManager/IEPManager'
+import RootPage from '../pages/RootPage/RootPage'
+import RAT from '../pages/RAT/RAT'
 import FRAT from '../pages/FRAT/FRAT'
 import GRAT from '../pages/GRAT/GRAT'
+import IncidentsHome from '../pages/Incidents/IncidentsHome'
+import Hazard from '../pages/Incidents/Hazard'
+import Accident from '../pages/Incidents/Accident'
+import Landing from '../pages/Landing/Landing'
 import Maint591 from '../pages/Maint591/Maint591'
 import Maint691 from '../pages/Maint691/Maint691'
 import Maint791 from '../pages/Maint791/Maint791'
@@ -30,9 +35,15 @@ import Ops6135 from '../pages/Ops6135/Ops6135'
 import Ops7135 from '../pages/Ops7135/Ops7135'
 
 const RootNavigator = StackNavigator({
+    Landing: {screen: Landing},
+    RootPage: {screen: RootPage},
+    RAT: {screen: RAT},
     IEPManager: {screen: IEPManager},
     FRAT: {screen: FRAT},
     GRAT: {screen: GRAT},
+    IncidentsHome: {screen: IncidentsHome},
+    Accident: {screen: Accident},
+    Hazard: {screen: Hazard},
     Maint591: {screen: Maint591},
     Maint691: {screen: Maint691},
     Maint791: {screen: Maint791},

@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet, ScrollView, TouchableOpacity, Button} from 'react-native';
-import GRAT from '../GRAT/GRAT'
-import FRAT from '../FRAT/FRAT'
-
 
 export default class RAT extends Component {
 
