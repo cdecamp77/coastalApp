@@ -8,21 +8,39 @@ export default class Hazard extends Component {
   constructor(props) {
     super(props);
     this.state= {
-      text: ''
+      text: '',
+      height: 40
     }
   }
+
+  updateSize = (height) => {
+    this.setState({
+      height
+    });
+  }
+
   render() {
       const { navigate } = this.props.navigation;
+      const {newValue, height} = this.state;
+
+      let newStyle = {
+        height
+      }
+
     return (
       <View style={styles.container}>
-        <Text>Submit a potential hazard report</Text>
+        <Text style={styles.headline} >Submit a potential hazard report</Text>
         <TextInput 
           style={styles.hazardInput}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
-          placeholder={'This is a hazard'}
+          placeholder={'Description'}
+          placeholderTextColor={'grey'}
+          editable={true}
+          multiline={true}
+          onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
         />
-        <Button title="Submit" onPress={() => navigate('Hazard')}  />
+        <Button title="Submit" onPress={() => navigate('Hazard')} />
       </View>
     );
   }
@@ -38,8 +56,15 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   hazardInput: {
-    height: 50,
-    backgroundColor: 'lightblue'
+    backgroundColor: 'white',
+    borderRadius: 1,
+    borderWidth: 2,
+    borderColor: 'black',
+    margin: 5
+  },
+  headline: {
+    fontSize: 25,
+    
   }
   });
 

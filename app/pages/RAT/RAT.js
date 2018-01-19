@@ -5,14 +5,14 @@ import CoastalLogo from '../../assets/CoastalLogo.png';
 export default class RAT extends Component {
 
   render() {
-       const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation;
     return (
         <ScrollView style={styles.container}>
-            <Image style={styles.image} source={require('../../assets/CoastalLogo.png')}></Image>
+            <Image style={styles.image} source={require('../../assets/CoastalLogo.png')} />
             <Text style={styles.h1}>Risk Analysis Tools</Text>
             <Button style={styles.button}  onPress={() => navigate('FRAT')} title="Flight Risk Analysis Tool" />
-            <Button style={styles.button}  onPress={() => navigate('GRAT')} title="Ground Risk Analysis Tool"/>
-      </ScrollView>
+            <Button style={styles.button}  onPress={() => navigate('GRAT')} title="Ground Risk Analysis Tool" />
+        </ScrollView>
     );
   }
 }

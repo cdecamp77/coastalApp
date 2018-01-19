@@ -4,15 +4,43 @@ import CoastalLogo from '../../assets/CoastalLogo.png';
 import RootNavigator from '../../components/RootNavigator';
 
 
-export default class Accident extends Component {
+export default class Hazard extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      text: '',
+      height: 40
+    }
+  }
+
+  updateSize = (height) => {
+    this.setState({
+      height
+    });
+  }
+
   render() {
       const { navigate } = this.props.navigation;
+      const {newValue, height} = this.state;
+
+      let newStyle = {
+        height
+      }
+
     return (
       <View style={styles.container}>
-        <Image flexArr={[12]} source={require('../../assets/CoastalLogo.png')} />
-        <Text>Submit an accident report</Text>
-        <TextInput />
-        <Button title="Submit" onPress={() => navigate('Hazard')}  />
+        <Text style={styles.headline} >Submit an accident report</Text>
+        <TextInput 
+          style={styles.accidentInput}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
+          placeholder={'Description'}
+          placeholderTextColor={'grey'}
+          editable={true}
+          multiline={true}
+          onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
+        />
+        <Button title="Submit" onPress={() => navigate('Accident')} />
       </View>
     );
   }
@@ -20,13 +48,24 @@ export default class Accident extends Component {
 
 const styles = StyleSheet.create({
   container: {
-      marginTop: 20,
+    marginTop: 20,
     backgroundColor: '#abcdef'
   },
-    image: {
-        width: 350,
-        height: 100
-    }
+  image: {
+    flex: 1,
+    resizeMode: 'contain',
+  },
+  accidentInput: {
+    backgroundColor: 'white',
+    borderRadius: 1,
+    borderWidth: 2,
+    borderColor: 'black',
+    margin: 5
+  },
+  headline: {
+    fontSize: 25,
+    
+  }
   });
 
-AppRegistry.registerComponent('Accident', () => Accident);
+AppRegistry.registerComponent('Hazard', () => Hazard);
