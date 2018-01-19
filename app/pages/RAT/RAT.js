@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {AppRegistry, Text, View, StyleSheet, ScrollView, TouchableOpacity, Button} from 'react-native';
+import {AppRegistry, Text, View, StyleSheet, ScrollView, TouchableOpacity, Button, Image} from 'react-native';
+import CoastalLogo from '../../assets/CoastalLogo.png';
 
 export default class RAT extends Component {
 
@@ -7,6 +8,7 @@ export default class RAT extends Component {
        const { navigate } = this.props.navigation;
     return (
         <ScrollView style={styles.container}>
+            <Image style={styles.image} source={require('../../assets/CoastalLogo.png')}></Image>
             <Text style={styles.h1}>Risk Analysis Tools</Text>
             <Button style={styles.button}  onPress={() => navigate('FRAT')} title="Flight Risk Analysis Tool" />
             <Button style={styles.button}  onPress={() => navigate('GRAT')} title="Ground Risk Analysis Tool"/>
@@ -31,9 +33,9 @@ const styles = StyleSheet.create ({
         width: 260,
         backgroundColor: '#2196F3'
     },
-    newChecklist: {
-        fontSize: 18,
-        backgroundColor: '#2196F3'
+    image: {
+        width: 350,
+        height: 100
     }
 });
 

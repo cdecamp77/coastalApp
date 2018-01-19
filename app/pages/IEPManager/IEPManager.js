@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {AppRegistry, Text, View, StyleSheet, ScrollView, TouchableOpacity, Button} from 'react-native';
+import {AppRegistry, Text, View, StyleSheet, ScrollView, TouchableOpacity, Button, Image} from 'react-native';
+import CoastalLogo from '../../assets/CoastalLogo.png';
 
 export default class IEPManager extends Component {
 
@@ -7,6 +8,7 @@ export default class IEPManager extends Component {
        const { navigate } = this.props.navigation;
     return (
         <ScrollView style={styles.container}>
+            <Image style={styles.image} source={require('../../assets/CoastalLogo.png')}></Image>
             <Text style={styles.h1}>Internal Evaluation Program Manager</Text>
             <Text style={styles.newChecklist}>New Checklists</Text>
             
@@ -74,6 +76,10 @@ const styles = StyleSheet.create ({
     newChecklist: {
         fontSize: 18,
         backgroundColor: '#2196F3'
+    },
+    image: {
+        width: 350,
+        height: 100
     }
 });
 

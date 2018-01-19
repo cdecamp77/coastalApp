@@ -8,21 +8,25 @@ export default class Landing extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            email: 'Email address',
-            password: 'Password'
+            email: '',
+            password: ''
     };
     }
   render() {
       const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Image flexArr={[12]} source={require('../../assets/CoastalLogo.png')} />
+        <View>
+            <Image style={styles.image} source={require('../../assets/CoastalLogo.png')}></Image>
+        </View>
         <TextInput 
-            style={{height: 25, borderColor: 'gray', borderWidth: 1}} 
+            style={{height: 25, borderColor: 'gray', borderWidth: 1}}
+            placeholder={'Email'}
             value={this.state.email}
             onChangeText={(email) => this.setState({email})} />
         <TextInput 
             style={{height: 25, borderColor: 'gray', borderWidth: 1}} 
+            placeholder={'Password'}
             value={this.state.password} 
             onChangeText={(password) => this.setState({password})}
             secureTextEntry={true} />
@@ -38,8 +42,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#abcdef'
     },
     image: {
-        flex: 1,
-        resizeMode: 'contain',
+        alignItems: 'center',
+        width: 350,
+        height: 100
     }
   });
 

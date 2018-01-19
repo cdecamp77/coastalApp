@@ -9,7 +9,7 @@ export default class RootPage extends Component {
       const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Image flexArr={[12]} source={require('../../assets/CoastalLogo.png')} />
+        <Image style={styles.image} source={require('../../assets/CoastalLogo.png')} />
         <Button title="Risk Analysis" onPress={() => navigate('RAT')}  />
         <Button title="IEP Manager" onPress={() => navigate('IEPManager')}  />
          <Button title="Incident Reporting" onPress={() => navigate('IncidentsHome')}  /> 
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#abcdef'
   },
     image: {
-        flex: 1,
-        resizeMode: 'contain',
+        width: 350,
+        height: 100,
     }
   });
 
