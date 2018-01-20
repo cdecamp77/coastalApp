@@ -10,9 +10,9 @@ export default class RootPage extends Component {
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={require('../../assets/CoastalLogo.png')} />
-        <Button title="Risk Analysis" onPress={() => navigate('RAT')}  />
-        <Button title="IEP Manager" onPress={() => navigate('IEPManager')}  />
-         <Button title="Incident Reporting" onPress={() => navigate('IncidentsHome')}  /> 
+        <Button title="Risk Analysis" onPress={() => navigate('RAT')} />
+        <Button title="IEP Manager" onPress={() => navigate('IEPManager')} />
+        <Button title="Incident Reporting" onPress={() => navigate('IncidentsHome')} /> 
       </View>
     );
   }

@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#abcdef'
   }
-  });
+});
 
 AppRegistry.registerComponent('coastalApp', () => coastalApp);

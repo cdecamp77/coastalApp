@@ -19,12 +19,12 @@ export default class Landing extends Component {
         <View>
             <Image style={styles.image} source={require('../../assets/CoastalLogo.png')}></Image>
         </View>
-        <TextInput 
+        <TextInput
             style={{height: 25, borderColor: 'gray', borderWidth: 1}}
             placeholder={'Email'}
             value={this.state.email}
             onChangeText={(email) => this.setState({email})} />
-        <TextInput 
+        <TextInput
             style={{height: 25, borderColor: 'gray', borderWidth: 1}} 
             placeholder={'Password'}
             value={this.state.password} 

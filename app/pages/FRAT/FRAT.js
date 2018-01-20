@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet, ScrollView} from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-import CheckBox from 'react-native-check-box'
+import CheckBox from 'react-native-check-box';
 
 
 export default class FRAT extends Component {
