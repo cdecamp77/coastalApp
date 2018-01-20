@@ -10,6 +10,7 @@ export default class IncidentsHome extends Component {
         return (
             <View style={styles.container}>
                 <Image style={styles.image} source={require('../../assets/CoastalLogo.png')} />
+                <Text style={styles.h1}>Hazard and Incident Reporting</Text>
                 <Button title="Hazard Risk Reporting" onPress={() => navigate('Hazard')}  />
                 <Button title="Accident Risk Reporting" onPress={() => navigate('Accident')}  />
             </View>
@@ -25,6 +26,11 @@ const styles = StyleSheet.create({
     image: {
         width: 350,
         height: 100
+    },
+    h1: {
+        fontSize: 25,
+        textAlign: 'center',
+        margin: 7
     }
 });
 

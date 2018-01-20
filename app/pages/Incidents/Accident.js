@@ -34,14 +34,14 @@ export default class Accident extends Component {
       const tableHead = ['Severity']
       const tableData = [
         [
-          <CheckBox onClick={()=>this.handleCheck()} />, <Cell style={{backgroundColor: 'green', alignItems: 'center'}} data='Negligible' />, 'Probably would not affect personnel safety or health, but is in violation of a standard, or property loss less than $10K.'
+          <CheckBox onClick={()=>this.handleCheck()} />, <Cell style={{backgroundColor: 'green', alignItems: 'center'}} data='Negligible' />, <Text style={styles.severityText}>Probably would not affect personnel safety or health, but is in violation of a standard, or property loss less than $10K.</Text>
         ], [
            <CheckBox onClick={()=>this.handleCheck()} />, 
-           <Cell style={{backgroundColor: 'yellow', alignItems: 'center'}} data='Marginal' />, 'May cause minor injury, minor illness or property loss greater than $10k.'
+           <Cell style={{backgroundColor: 'yellow', alignItems: 'center'}} data='Marginal' />, <Text style={styles.severityText}>May cause minor injury, minor illness or property loss greater than $10k.</Text>
         ], [
-           <CheckBox onClick={()=>this.handleCheck()} />, <Cell style={{backgroundColor: 'orange', alignItems: 'center'}} data='Critical' />,'May cause severe injury, severe illness, or property loss greater than $100k.'
+           <CheckBox onClick={()=>this.handleCheck()} />, <Cell style={{backgroundColor: 'orange', alignItems: 'center'}} data='Critical' />,<Text style={styles.severityText}>May cause severe injury, severe illness, or property loss greater than $100k.</Text>
         ], [
-          <CheckBox onClick={()=>this.handleCheck()} />, <Cell style={{backgroundColor: 'red', alignItems: 'center'}} data='Catastrophic' />, 'The hazard may cause death, or property loss greater than $1 mil.'
+          <CheckBox onClick={()=>this.handleCheck()} />, <Cell style={{backgroundColor: 'red', alignItems: 'center'}} data='Catastrophic' />, <Text style={styles.severityText}>The hazard may cause death, or property loss greater than $1 mil.</Text>
         ]
       ]
 
@@ -114,10 +114,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#abcdef'
   },
-  image: {
-    flex: 1,
-    resizeMode: 'contain',
-  },
   input: {
     backgroundColor: 'white',
     borderRadius: 1,
@@ -130,6 +126,9 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     margin: 5
+  },
+  severityText: {
+    padding: 4,
   }
   });
 
