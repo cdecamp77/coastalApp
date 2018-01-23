@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {AppRegistry, Text, View, StyleSheet, ScrollView} from 'react-native';
+import {AppRegistry, Text, View, StyleSheet, ScrollView, TextInput, Button} from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import CheckBox from 'react-native-check-box';
+import DatePicker from 'react-native-datepicker';
+import { Dropdown } from 'react-native-material-dropdown';
 
 
 export default class FRAT extends Component {
@@ -26,7 +28,20 @@ export default class FRAT extends Component {
     check18: false,
     totalFactorScore1: 0,
     totalFactorScore2: 0,
-    totalFactorScore3: 0
+    totalFactorScore3: 0,
+    date: new Date(),
+    height: 50,
+    tripID: '',
+    origin: '',
+    destination: '',
+    missionArea: '',
+
+  }
+
+  updateSize = (height) => {
+    this.setState({
+      height
+    });
   }
 
   handleCheck1(value, checkbox) {
@@ -84,6 +99,7 @@ export default class FRAT extends Component {
   }
 
   render() {
+    const {newValue, height} = this.state;
     const tableHead1 = ['Pilot Qualifications / Experience / Duty Time']
     const tableData1 = [
       [<CheckBox
@@ -150,10 +166,140 @@ export default class FRAT extends Component {
       />, '90% of allowable payload', '3'],
       ["Total Factor Score: " +this.state.totalFactorScore3]
     ]
+
+    let newStyle = {
+        height
+      }
+
+    let aircraft = [{
+      value: 'N205TK',
+    }, {
+      value: 'N206SA'
+    }, {
+      value: 'N4TV'
+    }, {
+      value: 'N576VP'
+    }, {
+      value: 'N6133C'
+    }, {
+      value: 'N623PD'
+    }];
+
+    let missionType = [{
+      value: 'Charter',
+    }, {
+      value: 'Maintenance Flight'
+    }, {
+      value: 'Part 133 External Load'
+    }, {
+      value: 'Part 91'
+    }, {
+      value: 'Training'
+    }, {
+      value: 'USFS Fire Fighting'
+    }];
+
+    let PIC = [{
+      value: 'Chris'
+    }, {
+      value: 'Bryan'
+    }, {
+      value: 'Eric'
+    }];
+
+    let SIC = [{
+      value: 'Chris'
+    }, {
+      value: 'Bryan'
+    }, {
+      value: 'Eric'
+    }];
+
     return (
       <ScrollView style={styles.container}>
         <Text>Flight Risk Anaylsis Tool</Text>
         <Text>Template Name: Coastal Helicopters Fire</Text>
+        <DatePicker
+          style={{width: 200}}
+          date={this.state.date}
+          mode="date"
+          placeholder="select date"
+          format="YYYY-MM-DD"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+          }}
+          onDateChange={(date) => {this.setState({date: date})}}
+          />
+          <Dropdown
+            label='Aircraft:'
+            data={aircraft}
+            style={styles.dropdown}
+          />
+          <TextInput 
+            style={styles.input}
+            onChangeText={(tripID) => this.setState({tripID})}
+            value={this.state.tripID}
+            placeholder={'Trip ID'}
+            placeholderTextColor={'grey'}
+            editable={true}
+            multiline={true}
+            onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
+          />
+          <Dropdown
+            label='Mission Type'
+            data={missionType}
+            stlye={styles.dropdown}
+          />
+          <TextInput 
+            style={styles.input}
+            onChangeText={(origin) => this.setState({origin})}
+            value={this.state.origin}
+            placeholder={'Origin'}
+            placeholderTextColor={'grey'}
+            editable={true}
+            multiline={true}
+            onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
+          />
+          <TextInput 
+            style={styles.input}
+            onChangeText={(destination) => this.setState({destination})}
+            value={this.state.destination}
+            placeholder={'Destination'}
+            placeholderTextColor={'grey'}
+            editable={true}
+            multiline={true}
+            onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
+          />
+          <TextInput 
+            style={styles.input}
+            onChangeText={(missionArea) => this.setState({missionArea})}
+            value={this.state.missionArea}
+            placeholder={'Mission Area'}
+            placeholderTextColor={'grey'}
+            editable={true}
+            multiline={true}
+            onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
+          />
+          <Dropdown 
+            label='PIC'
+            data={PIC}
+            style={styles.dropdown}
+          />
+          <Dropdown 
+            label='SIC'
+            data={SIC}
+            style={styles.dropdown}
+          />
           <Table>
             <Row data={tableHead1} style={styles.title} />
             <TableWrapper>
@@ -184,8 +330,15 @@ const styles = StyleSheet.create ({
   title: {
     backgroundColor: '#9EBEF2'
   },
-  tableRow: {
-
+  input: {
+    backgroundColor: 'white',
+    borderRadius: 1,
+    borderWidth: 2,
+    borderColor: 'black',
+    margin: 5
+  },
+  dropdown: {
+    margin: 5
   }
 });
 

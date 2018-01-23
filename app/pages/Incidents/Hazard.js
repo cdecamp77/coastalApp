@@ -49,8 +49,6 @@ export default class Hazard extends Component {
         height
       }
 
-      let today = new Date();
-
       let data = [{
         value: 'Bryan',
       }, {
