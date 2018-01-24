@@ -60,6 +60,12 @@ const RootNavigator = StackNavigator({
     Ops5135: {screen: Ops5135},
     Ops6135: {screen: Ops6135},
     Ops7135: {screen: Ops7135},
-  });
+    } 
+  // {
+  //     navigationOptions: {
+  //       header: false
+  //     }
+  //   }
+  );
 
 export default RootNavigator;

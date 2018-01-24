@@ -245,6 +245,7 @@ export default class FRAT extends Component {
             data={aircraft}
             style={styles.dropdown}
           />
+          <Text>Trip ID</Text>
           <TextInput 
             style={styles.input}
             onChangeText={(tripID) => this.setState({tripID})}
@@ -260,6 +261,7 @@ export default class FRAT extends Component {
             data={missionType}
             stlye={styles.dropdown}
           />
+          <Text>Origin</Text>
           <TextInput 
             style={styles.input}
             onChangeText={(origin) => this.setState({origin})}
@@ -270,6 +272,7 @@ export default class FRAT extends Component {
             multiline={true}
             onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
           />
+          <Text>Destination</Text>
           <TextInput 
             style={styles.input}
             onChangeText={(destination) => this.setState({destination})}
@@ -280,6 +283,7 @@ export default class FRAT extends Component {
             multiline={true}
             onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
           />
+          <Text>Mission Area</Text>
           <TextInput 
             style={styles.input}
             onChangeText={(missionArea) => this.setState({missionArea})}

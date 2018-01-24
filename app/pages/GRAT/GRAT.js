@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {AppRegistry, Text, View, StyleSheet, ScrollView} from 'react-native';
+import {AppRegistry, Text, View, StyleSheet, ScrollView, TextInput, Button} from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-import CheckBox from 'react-native-check-box'
+import CheckBox from 'react-native-check-box';
+import DatePicker from 'react-native-datepicker';
+import { Dropdown } from 'react-native-material-dropdown';
 
 export default class GRAT extends Component {
   state = {
@@ -92,6 +94,15 @@ export default class GRAT extends Component {
     totalFactorScore4: 0,
     totalFactorScore5: 0,
     totalFactorScore6: 0,
+    date: new Date(),
+    height: 50,
+    shift: '',
+  }
+
+  updateSize = (height) => {
+    this.setState({
+      height
+    });
   }
 
   handleCheck1(value, checkbox) {
@@ -295,6 +306,7 @@ export default class GRAT extends Component {
   
 
   render() {
+    const {newValue, height} = this.state;
     const tableHead1 = ['Maintenance Risk Assessment']
     const tableData1 = [
       [<CheckBox
@@ -565,10 +577,55 @@ export default class GRAT extends Component {
         />, 'Power Tools: Used Outside of Shop', '4'],
         ['Total Factor Score: '+this.state.totalFactorScore6]
     ]
+
+    let submittedBy = [{
+      value: 'Chris'
+    }, {
+      value: 'Bryan'
+    }, {
+      value: 'Eric'
+    }];
     return (
       <ScrollView style={styles.container}>
         <Text>Ground Risk Anaylsis Tool</Text>
         <Text>Template Name: Coastal Helicopters Fire</Text>
+        <DatePicker
+          style={{width: 200}}
+          date={this.state.date}
+          mode="date"
+          placeholder="select date"
+          format="YYYY-MM-DD"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+          }}
+          onDateChange={(date) => {this.setState({date: date})}}
+          />
+          <Dropdown
+            label='Submitted By:'
+            data={submittedBy}
+            style={styles.dropdown}
+          />
+          <Text>Shift</Text>
+          <TextInput 
+            style={styles.input}
+            onChangeText={(shift) => this.setState({shift})}
+            value={this.state.shift}
+            placeholder={'Shift'}
+            placeholderTextColor={'grey'}
+            editable={true}
+            multiline={true}
+            onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
+          />
           <Table>
             <Row data={tableHead1} style={styles.title} />
             <TableWrapper>
@@ -617,6 +674,16 @@ const styles = StyleSheet.create ({
   },
   title: {
     backgroundColor: '#9EBEF2'
+  },
+input: {
+    backgroundColor: 'white',
+    borderRadius: 1,
+    borderWidth: 2,
+    borderColor: 'black',
+    margin: 5
+  },
+  dropdown: {
+    margin: 5
   }
 });
 
